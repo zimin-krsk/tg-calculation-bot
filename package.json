@@ -1,0 +1,16 @@
+{
+  "name": "zimin-krsk.simple-calc-bot",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "^1.6.3",
+    "request": "^2.85.0"
+  },
+  "author": "Zimin Aleksandr",
+  "license": "Apache-2.0"
+}
