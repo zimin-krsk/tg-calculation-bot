@@ -210,6 +210,13 @@ class TelegramBot {
                 console.error('Some error when editMessageText method calling. Cause:', error);
             });
     }
+
+    answerCallbackQuery(data) {
+        this.sendRequest('answerCallbackQuery', data)
+            .catch(error => {
+                console.error('Some error when answerCallbackQuery method calling. Cause:', error);
+            });
+    }
 }
 
 module.exports = TelegramBot;

@@ -88,6 +88,7 @@ class CalcBot extends TelegramBotPolling {
         };
 
         this.editMessageText(answer);
+        this.answerCallbackQuery({callback_query_id: query.id});
     }
 
     calculate(query) {
@@ -110,6 +111,7 @@ class CalcBot extends TelegramBotPolling {
         };
 
         this.editMessageText(answer);
+        this.answerCallbackQuery({callback_query_id: query.id});
     }
 
     reset(query) {
@@ -132,6 +134,7 @@ class CalcBot extends TelegramBotPolling {
         };
 
         this.editMessageText(answer);
+        this.answerCallbackQuery({callback_query_id: query.id});
     }
 }
 

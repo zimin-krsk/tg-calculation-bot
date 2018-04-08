@@ -23,6 +23,14 @@ const ApiOptions = {
         parse_mode: null,
         disable_web_page_preview: null,
         reply_markup: null
+    },
+
+    answerCallbackQuery: {
+        callback_query_id: null,
+        text: null,
+        show_alert: null,
+        url: null,
+        cache_time: null
     }
 };
 
