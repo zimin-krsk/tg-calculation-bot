@@ -6,7 +6,7 @@ class TelegramBotPolling extends TelegramBot {
         super(token);
         this.polling = {
             enabled: true,
-            timeout: timeout || 2000,
+            timeout: timeout || 200,
             scheduler: null,
             params: {}
         };
