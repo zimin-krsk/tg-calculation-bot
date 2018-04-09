@@ -8,6 +8,7 @@
  * - curl -F "url=https://db65cda9.ngrok.io"  https://api.telegram.org/bot537983199:AAE4wthgVYelGHPg3di39vbWVsK-q8a8ZqQ/setWebhook
  * - https://api.telegram.org/bot537983199:AAE4wthgVYelGHPg3di39vbWVsK-q8a8ZqQ/getWebhookInfo
  * - https://api.telegram.org/bot537983199:AAE4wthgVYelGHPg3di39vbWVsK-q8a8ZqQ/deleteWebHook
+ * - https://api.telegram.org/bot537983199:AAE4wthgVYelGHPg3di39vbWVsK-q8a8ZqQ/getUpdates
  *
  */
 const {RELEASE_BOT_TOKEN} = require('./conf/constants');
