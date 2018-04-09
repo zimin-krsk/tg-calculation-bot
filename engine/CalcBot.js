@@ -6,8 +6,8 @@ class CalcBot extends TelegramBotPolling {
         super(token);
         this.keyboard = CalcBot.initKeyboard();
         this.wideText = 'Please input your formula using keyboard below:\r\n';
-        this.formula = '';
-        this.prevData = '';
+        this.formula = {};
+        this.prevData = {};
     }
 
     static initKeyboard() {
@@ -59,29 +59,29 @@ class CalcBot extends TelegramBotPolling {
             case '+':
             case '-':
                 if (data === '+' || data === '-') {
-                    this.formula = this.formula.slice(0, -1) + data;
+                    this.formula[message.chat.id] = this.formula[message.chat.id].slice(0, -1) + data;
                 }
                 break;
             case 'AC':
             case '=':
                 if (data === 'AC' || data === '=') {
-                    this.formula = '';
+                    this.formula[message.chat.id] = '';
                 } else {
-                    this.formula = data;
+                    this.formula[message.chat.id] = data;
                 }
                 break;
             case '':
-                this.formula = data;
+                this.formula[message.chat.id] = data;
                 break;
             default:
-                this.formula = this.formula + data;
+                this.formula[message.chat.id] = this.formula[message.chat.id] + data;
         }
 
-        this.prevData = data;
+        this.prevData[message.chat.id] = data;
         let answer = {
             chat_id: message.chat.id,
             message_id: message.message_id,
-            text: this.wideText + this.formula,
+            text: this.wideText + this.formula[message.chat.id],
             reply_markup: JSON.stringify({
                 ...this.keyboard
             })
@@ -99,12 +99,12 @@ class CalcBot extends TelegramBotPolling {
             return;
         }
 
-        this.formula = 'Ohhh... it\'s very hard for me';
-        this.prevData = data;
+        this.formula[message.chat.id] = 'Ohhh... it\'s very hard for me';
+        this.prevData[message.chat.id] = data;
         let answer = {
             chat_id: message.chat.id,
             message_id: message.message_id,
-            text: this.wideText + this.formula,
+            text: this.wideText + this.formula[message.chat.id],
             reply_markup: JSON.stringify({
                 ...this.keyboard
             })
@@ -122,8 +122,8 @@ class CalcBot extends TelegramBotPolling {
             return;
         }
 
-        this.formula = '';
-        this.prevData = data;
+        this.formula[message.chat.id] = '';
+        this.prevData[message.chat.id] = data;
         let answer = {
             chat_id: message.chat.id,
             message_id: message.message_id,
