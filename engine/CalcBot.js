@@ -64,7 +64,7 @@ class CalcBot extends TelegramBotPolling {
                 break;
             case 'AC':
             case '=':
-                if (data === 'AC' && data === '=') {
+                if (data === 'AC' || data === '=') {
                     this.formula = '';
                 } else {
                     this.formula = data;

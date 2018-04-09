@@ -31,29 +31,16 @@ bot.enrollQuery('AC', bot.reset.bind(bot));
 
 bot.start();
 
-// Start server for listening web hooking requests
-// Implementation for WebHooking Telebot
-/*
+// Start server for Heroku deploing
 const {PORT, ROUTE_SECURITY_TOKEN} = require('./conf/constants');
-
 let express = require('express');
-let webhookRoute = require('./routes/release');
+let app = express();
 
-if (bot.isWebHooking) {
-    console.log('Starting web hooking bot...');
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.listen(PORT, function() {
+    console.log('Node app is running on port', PORT);
+});
 
-    let app = express();
-
-    app.use(express.json());
-    app.use(express.urlencoded({extended: true}));
-    app.listen(PORT, function() {
-        console.log('Node app is running on port', PORT);
-    });
-
-    app.post(`/${ROUTE_SECURITY_TOKEN}`, webhookRoute);
-
-    module.exports = app;
-}
-*/
 
 module.exports = bot;
